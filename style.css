@@ -8,46 +8,52 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
+    background: #07172f;
+    color: #ffffff;
     line-height: 1.6;
 }
 
 /* Header */
 header {
-    background: #1e293b;
+    background: #10284b;
     padding: 20px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
-    color: #38bdf8;
+    color: #38d9f5;
     font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 22px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: #38bdf8;
+    color: #38d9f5;
 }
 
-/* Home Section */
+/* Hero Section */
 .hero {
-    min-height: 75vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,27 +62,40 @@ nav a:hover {
     padding: 60px 20px;
 }
 
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid #38d9f5;
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgba(56, 217, 245, 0.3);
+}
+
 .hero h1 {
     font-size: 42px;
     margin-bottom: 10px;
 }
 
 .hero h1 span {
-    color: #38bdf8;
+    color: #38d9f5;
 }
 
 .hero h3 {
+    font-size: 20px;
     margin-bottom: 20px;
 }
 
 .hero p {
+    font-size: 18px;
     margin-bottom: 25px;
 }
 
-/* Button */
 .btn {
-    background: #38bdf8;
-    color: #0f172a;
+    display: inline-block;
+    background: #38d9f5;
+    color: #07172f;
     padding: 12px 28px;
     border-radius: 8px;
     text-decoration: none;
@@ -85,34 +104,24 @@ nav a:hover {
 }
 
 .btn:hover {
-    background: white;
-    transform: scale(1.05);
+    background: #ffffff;
+    transform: translateY(-3px);
 }
 
-/* All Sections */
-section {
-    padding: 70px 8%;
-    scroll-margin-top: 20px;
+/* General Sections */
+section:not(.hero) {
+    padding: 75px 8%;
 }
 
 section h2 {
-    color: #38bdf8;
+    color: #38d9f5;
     font-size: 32px;
     margin-bottom: 25px;
-}
-
-/* About Section */
-#about {
-    display: block;
-    min-height: 250px;
-    background: #172554;
 }
 
 #about p {
     max-width: 800px;
     font-size: 18px;
-    line-height: 1.8;
-    color: #e2e8f0;
 }
 
 /* Skills */
@@ -123,66 +132,85 @@ section h2 {
 }
 
 .skills span {
-    background: #334155;
-    padding: 12px 22px;
+    background: #19375e;
+    padding: 12px 24px;
     border-radius: 8px;
+    border: 1px solid #38d9f5;
     transition: 0.3s;
 }
 
 .skills span:hover {
-    background: #38bdf8;
-    color: #0f172a;
+    background: #38d9f5;
+    color: #07172f;
 }
 
 /* Projects */
 .project-card {
-    background: #334155;
+    background: #19375e;
     padding: 25px;
+    border-radius: 12px;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-left: 4px solid #38d9f5;
     transition: 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    background: #475569;
 }
 
 .project-card h3 {
     margin-bottom: 10px;
-    color: #38bdf8;
+    color: #38d9f5;
 }
 
-/* Contact */
-#contact {
-    background: #172554;
-}
-
-#contact p {
+.project-card p {
     margin-bottom: 12px;
 }
 
+.project-card a,
 #contact a {
-    color: #38bdf8;
+    color: #38d9f5;
     text-decoration: none;
+}
+
+.project-card a:hover,
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Contact */
+#contact p {
+    margin: 12px 0;
 }
 
 /* Footer */
 footer {
-    background: #1e293b;
+    background: #10284b;
     text-align: center;
-    padding: 20px;
+    padding: 22px;
+    color: #cccccc;
 }
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
+
     header {
         flex-direction: column;
+        padding: 18px 12px;
     }
 
     nav {
         justify-content: center;
-        gap: 15px;
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 80vh;
+        padding: 45px 15px;
     }
 
     .hero h1 {
@@ -190,23 +218,23 @@ footer {
     }
 
     .hero h3 {
-        font-size: 17px;
+        font-size: 16px;
     }
 
-    section {
-        padding: 50px 6%;
+    .hero p {
+        font-size: 16px;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    section:not(.hero) {
+        padding: 55px 20px;
     }
 
     section h2 {
-        font-size: 28px;
+        font-size: 27px;
     }
-}
-.profile-photo {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #38bdf8;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
 }
