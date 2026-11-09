@@ -1,26 +1,20 @@
-// Smooth fade-in animation
+// Smooth page loading
 window.addEventListener("load", () => {
-    document.body.style.opacity = "1";
+    document.body.classList.add("loaded");
 });
 
-// Button click effect
-const button = document.querySelector("button");
+// Navigation links
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        console.log("Navigation clicked:", link.textContent);
+    });
+});
 
-if (button) {
-    button.addEventListener("click", () => {
-        alert("📧 Contact section will be added soon!");
+// Contact button
+const contactButton = document.querySelector(".btn");
+
+if (contactButton) {
+    contactButton.addEventListener("click", () => {
+        console.log("Opening contact section");
     });
 }
-
-// Reveal animation while scrolling
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-});
-
-document.querySelectorAll(".card, section").forEach((el) => {
-    observer.observe(el);
-});
