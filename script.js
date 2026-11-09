@@ -1,20 +1,22 @@
-// Smooth page loading
-window.addEventListener("load", () => {
-    document.body.classList.add("loaded");
-});
+// Smooth scrolling for navigation links
+document.querySelectorAll('nav a, .btn').forEach(link => {
+    link.addEventListener('click', function(event) {
+        const targetId = this.getAttribute('href');
 
-// Navigation links
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", () => {
-        console.log("Navigation clicked:", link.textContent);
+        if (targetId && targetId.startsWith('#')) {
+            const target = document.querySelector(targetId);
+
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
     });
 });
 
-// Contact button
-const contactButton = document.querySelector(".btn");
-
-if (contactButton) {
-    contactButton.addEventListener("click", () => {
-        console.log("Opening contact section");
-    });
-}
+// Simple page loading effect
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+});
